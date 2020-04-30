@@ -1,0 +1,22 @@
+<view class="member_info_container fontSize28 ">
+	<view class="flex member_card">
+	</view>
+	<view class="flex fontSize32 flex-around-justify mini_card">
+		<view class="flex-1">
+			<image src="../../images/point.png" mode="widthFix" style="width:60%"></image>
+			<view>积分奖励</view>
+		</view>
+		<view class="flex-1">
+			<image src="../../images/activity.png" mode="widthFix" style="width:60%"></image>
+			<view>互动活动</view>
+		</view>
+		<view class="flex-1">
+			<image src="../../images/siber.png" mode="widthFix" style="width:60%"></image>
+			<view>卡券发放</view>
+		</view>
+	</view>
+	<view class="member_info_box">
+		<button class="member_info fontSize32" bindgetphonenumber="getAuthorization" open-type='getPhoneNumber'>现在加入</button>
+		<view style="color:#666666;margin-top:30rpx;" class="fontSize28">加入即表示你接受此品牌的<text class="text_link">用户协议</text>和<text class="text_link">隐私政策</text></view>
+	</view>
+</view>

@@ -1,35 +1,24 @@
-// pages/cart/index.js
+// Auth/member_card/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    checked:false,
-    selectAll:false
+
   },
-  doSubmit(){
-    wx.navigateTo({
-      url: '/Trade/confirm/index',
-    })
-  },
-  onChange(event) {
-    this.setData({
-      checked: event.detail
-    });
-  },
-  onSelectAllChange(event) {
-    this.setData({
-      selectAll: event.detail
-    });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
+  goAuthorization(){
+    wx.navigateTo({
+      url: '/Auth/authorization/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -41,7 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
- 
+
   },
 
   /**

@@ -1,4 +1,5 @@
 @import "style/iconfont.wxss";
+@import "style/xl.wxss";
 /**app.wxss**/
 
 .container {

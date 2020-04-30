@@ -1,0 +1,13 @@
+<view class="authorization_container fontSize28 flex  flex-align-center flex-pack-center" >
+
+  <view style="margin-bottom:40vh">
+      <i class="iconfont icon-weixinshouquanx" style="font-size:180rpx;"></i>
+      <view style="margin:40rpx 0 20rpx;letter-spacing: 4rpx;" class="fontSize32">首次登录请点击授权按钮</view>
+      <view class="fontSize28" style="letter-spacing: 2rpx;">授权后您将享受更好的服务</view>
+  </view>
+	<view class="authorization_box">
+		<button wx:if="{{canIUse}}" class="authorization fontSize32" bindgetuserinfo="getUserInfoPage" open-type="getUserInfo">点击授权</button>
+		<button wx:else class="authorization fontSize32" bindtap="goNext">点击授权</button>
+	</view>
+  
+</view>

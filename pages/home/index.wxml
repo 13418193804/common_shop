@@ -28,42 +28,7 @@
 		</view>
 
 
-	</view>
 
-
-	<view class="banner">
-		<image src="../../images/banner.png" mode="widthFix" style="width:100%;"></image>
-	</view>
-	<view class="category flex  flex-around-justify">
-		<view wx:for="{{catList}}">
-			<view class="flex-1">
-				<image src="../../images/c{{index+1}}.png" mode="widthFix" style="width:70%"></image>
-			</view>
-			<view class="fontSize28" style="margin-top:10rpx;">{{item}}</view>
-		</view>
-	</view>
-
-	<view class="around_shop ">
-		<view class="flex flex-pack-justify flex-align-center">
-			<view class="fontSize32">我的附近</view>
-			<view class="fontSize28" style="color:#888888"><i class="iconfont icongonggao" style="color:#FF7F00"></i>今日促销满38元免配送费 ></view>
-		</view>
-
-		<view class="around_shop_item flex flex-align-center fontSize28" wx:for="{{shopList}}">
-			<view>
-				<image src="../../images/s{{index+1}}.png" mode="widthFix" style="width:20vw;margin:20rpx;"></image>
-			</view>
-			<view class="flex-1" style="line-height:60rpx;">
-				<view class="fontSize32">{{item}}</view>
-				<view class="flex fontSize24">
-					<view class="taps" style="color:#FC5D5E;border-color:#FC5D5E;">实惠</view>
-				</view>
-				<view style="color:#888888;">广州市天河北路90号 </view>
-			</view>
-			<view>
-				<view class="go_shop">去买菜</view>
-			</view>
-		</view>
 
 	</view>
 </view>

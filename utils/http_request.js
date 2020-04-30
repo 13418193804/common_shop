@@ -17,7 +17,7 @@ class API {
 
   init(method, debug = false, test = false, line2 = false) {
     let _ = this
-    return (url, params, options = {}) => {
+    return (url,  params, options = {}) => {
       const header = options.header || {
         'content-type': 'application/x-www-form-urlencoded'
       }
@@ -46,7 +46,6 @@ class API {
         // const userid = '1';
         params['token'] = token;
         params['userId'] = userid;
-        console.log(url)
         var rUrl = urlapi.getUrl(url);
         console.log(rUrl)
         // 校验参数（不可传undefined和null），过滤空格
@@ -73,13 +72,14 @@ class API {
             if (loading) {
               wx.hideLoading()
             }
-           
+            
             switch (res.statusCode) {
               case 200:
                 if (rUrl.indexOf('Lunched') < 0 && rUrl.indexOf('homeOrderDetail') < 0) {
                   console.log(`######MINA_AISI_CONSOLE:${rUrl},Params:${JSON.stringify(params)} response:`, res);
                 }
-                resolve(res.data);
+
+                resolve({...res.data , httpStatus : res.statusCode});
                 break;
               case 401:
                 wx.showToast({
@@ -103,7 +103,7 @@ class API {
               default:
                 console.log(`######MINA_AISI_CONSOLE:${rUrl}错误,Params:${JSON.stringify(params)} response:`, res);
 
-                reject(res.data);
+                reject({...res.data , httpStatus : res.statusCode});
                 break;
             }
           })

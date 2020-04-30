@@ -1,7 +1,7 @@
 var apidomain = {
   // 基础接口
   base: {
-    prod: 'https://chelushi.aisishop.com/miniApi',
+    prod: 'https://midapi.aisishop.com/gateway',
     debug: 'http://120.24.70.202:9000',
     huidu: 'https://gfhapi.zkungfu.com/v29'
   },
@@ -43,6 +43,8 @@ function getSuffix () {
 }
 
 function getUrl(path) {
+
+
   return `${apidomain['base'][getSuffix()]}${path}`;
 }
 

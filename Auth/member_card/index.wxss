@@ -1,0 +1,35 @@
+.member_card_container {
+  background-color: #131522;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+}
+.collar_card_box{
+  position: absolute;
+  bottom: 23vh;
+  width: 100vw;
+}
+.collar_card {
+  padding: 25rpx 10rpx;
+  color: #6A3F08;
+  background-color: #EDCC96;
+  width: 65vw;
+  margin:  0 auto;
+}
+
+.notmember {
+  color: #FFFFFF;
+  line-height: 110rpx;
+  font-size: 42rpx;
+  letter-spacing: 8rpx;
+
+}
+
+.reg_member {
+  color: #FFFFFF;
+  opacity: 0.7;
+  font-weight: 300;
+  letter-spacing: 6rpx;
+}

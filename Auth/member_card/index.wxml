@@ -1,0 +1,17 @@
+<view class="member_card_container fontSize28 flex  flex-align-center flex-pack-center">
+
+	<view style="margin-bottom: 35vh;">
+
+		<image src="../../images/card.png"></image>
+
+
+
+		<view class="notmember ">您还不是会员</view>
+		<view class="reg_member">注册会员可享受会员权益</view>
+
+
+	</view>
+	<view class="collar_card_box">
+		<view class="collar_card" bindtap="goAuthorization">免费领卡注册</view>
+	</view>
+</view>

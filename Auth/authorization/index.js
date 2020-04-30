@@ -1,58 +1,50 @@
-// pages/category/index.js
+// Auth/authorization/index.js
+import api from "../../utils/http_request.js"
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    mainActiveIndex: 0,
-    items:[
-      {
-        // 导航名称
-        text: '蔬菜',
-      },
-      {
-        // 导航名称
-        text: '叶菜类',
-      },   {
-        // 导航名称
-        text: '叶菜类',
-      },
-      {
-        // 导航名称
-        text: '叶菜类',
-      },   {
-        // 导航名称
-        text: '叶菜类',
-      },   {
-        // 导航名称
-        text: '叶菜类',
-      },   {
-        // 导航名称
-        text: '叶菜类',
-      },   {
-        // 导航名称
-        text: '叶菜类',
-      },
-    ]
-    ,activeId: null
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
-  onClickNav({ detail = {} }) {
-    console.log(detail)
-  },
-
-  onClickItem({ detail = {} }) {
-    console.log(detail)
-
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
+  goNext() {
+    wx.navigateTo({
+      url: '/Auth/member_info/index',
+    })
+  },
+  getUserInfoPage(e) {
 
+    let params = e.detail
+
+    const _self = this
+    params.fansId = app.globalData.fansId
+    // return
+    api.post("/scrm-user-service/user/wechat/user/info", params, {
+      loading: true
+    }).then(res => {
+      if (res.httpStatus >= 550) {
+        wx.showToast({
+          title: '授权失败',
+          icon: 'none',
+          duration: 1500,
+        })
+        return
+      }
+      this.goNext()
+    }).catch(e => {
+      console.log(e)
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

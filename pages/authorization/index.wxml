@@ -1,5 +1,4 @@
-<view class="phonenumber">
-  <!-- wx.reLaunch -->
+<view class="auth_container">
 
     <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
@@ -11,13 +10,5 @@
 
 
    
-
-  <button style="margin:30rpx auto;" wx:if="{{!token}}" open-type="getPhoneNumber" type="primary" bindgetphonenumber="getPhoneNumber">
-    授权登录
-  </button>
-  
-  <button  type="primary" bindtap="goHome">
-    回到首页
-  </button>
 
 </view>

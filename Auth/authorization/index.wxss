@@ -1,0 +1,25 @@
+.authorization_container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.authorization_box {
+  position: absolute;
+  bottom: 15vh;
+  width: 100vw;
+}
+
+.authorization {
+  letter-spacing: 4rpx !important;
+  line-height: 41rpx !important;
+  font-size: 32rpx !important;
+  background: none !important;
+  padding: 25rpx 10rpx !important;
+  color: #fff !important;
+  background-color: #333 !important;
+  width: 65vw !important;
+  margin: 0 auto !important;
+}
