@@ -1,0 +1,222 @@
+wx7f90583b67e3dcc5
+07729e9c8b1c0ec7e7c5a265098aad99
+
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+
+
+.flex-v {
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+
+
+.flex-1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+
+
+.flex-align-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+
+
+.flex-pack-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+
+
+.flex-pack-justify {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+
+.flex-around-justify {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+}
+
+
+
+.flex-warp-justify {
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+}
+
+
+.flex-nowrap-justify {
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+}
+
+
+以上是 flex 布局兼容ios8 样式：
+
+通用布局class如下:
+
+display:flex                          flex 
+
+align-items: center                   flex  flex-align-center
+
+justify-content: center               flex   flex-pack-center
+
+justify-content: space-between        flex   flex-pack-justify
+
+justify-content: space-around         flex  flex-around-justify
+
+
+
+1、寻找 <style></style> 使用flex 的class，在class删除display样式，应用class的DOM节点加上对应的flex兼容组合;
+
+替换前：
+
+<style>
+
+.div{
+font-size:16px;
+color:red;
+display:flex;
+}
+</style>
+
+
+购物车选择  数量  取折扣
+
+<div class="div"></div>
+
+替换后：
+
+
+<style>
+
+.div{
+font-size:16px;
+color:red;
+
+}
+</style>
+
+<div class="div flex"></div>
+
+
+
+2、寻找style属性内使用的flex布局删除样式加上class属性或补充相应删除的class
+
+替换前：
+	<div style="display:flex"></div>
+替换后：
+	<div class="flex"></div>
+
+
+
+  user-select: none;
+
+文本不可选择
+
+.system-font-stack {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+系统字体
+
+
+sudo yum remove docker                   docker-client                   docker-client-latest                   docker-common                   dockerer-logrotate                   docker-engine
+  164  docker
+  165  yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel
+  166  cd /usr/local/src/
+  167  wget http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz
+  168   tar zxvf pcre-8.35.tar.gz
+  169  cd pcre-8.35
+  170  ./configure
+  171  make && make install
+  172  pcre-config --version
+  173  cd /usr/local/src/
+  174  wget http://nginx.org/download/nginx-1.6.2.tar.gz
+  175  cd nginx-1.6.2
+  176  ll
+  177  tar zxvf nginx-1.6.2.tar.gz
+  178  cd nginx-1.6.2
+  179  /configure --prefix=/usr/local/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=/usr/local/src/pcre-8.35
+  180  ./configure --prefix=/usr/local/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=/usr/local/src/pcre-8.35
+  181  make
+  182  make install
+  183  /usr/local/webserver/nginx/sbin/nginx -v
+  184  /usr/sbin/groupadd www 
+  185   /usr/sbin/useradd -g www www
+  186  cat /usr/local/webserver/nginx/conf/nginx.conf
+  187  vi /usr/local/webserver/nginx/conf/nginx.conf
+  188  ln -s /usr/local/bin/ngin[C  /usr/local/webserver/nginx/sbin/nginx
+  189  /usr/local/webserver/nginx/sbin/nginx
+  190  ll
+  191  nginx -t
+  192  ln -s /usr/local/bin/nginx  /usr/local/webserver/nginx/sbin/nginx
+  193  /usr/local/webserver/nginx/sbin/nginx -t
+  194  cd /usr/local/
+  195  ll
+  196   cd bin/
+  197  ll
+  198  ln -s  ./nginx  /usr/local/webserver/nginx/sbin/nginx
+  199  ln -s  /usr/local/webserver/nginx/sbin/nginx ./nginx
+  200  cd /
+  201  nginx -t
+  202  java
+  203  yum install -y java-1.8.0-openjdk*
+  204  tar -xzvf  jdk-8u191-linux-x64.tar.gz
+  205   vim /etc/profile
+  206  source /etc/profile
+  207  java -version
+  208  cd ~
+  209  yum install -y java-1.8.0-openjdk*
+  210  java -version
+  211  java'
+  212  c
+
+
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7f90583b67e3dcc5&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+
+
+ALTER TABLE `order`
+ADD COLUMN  `pay_time` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ;
+
+
+select b.role_Type ,a.* from tb_ieo_log a LEFT JOIN `user` b on a.user_id = b.user_id  WHERE  ieo_type  ='WHITE_IEO' or  ieo_type  ='BLACK_IEO' or  ieo_type  ='JEWEL_IEO'
+
+ID5d8b3092ae7fee263c1c0ed68a3	VCT	http://vsex.pro/vsex/upload/20200328/file5e7f13cf1697104a9eaa7610.png	全球首个百倍通缩平台币VCT返场回馈	VCT	<p><br></p><p><br></p><p><img src="http://www.vsex.pro/vsexmanagerapi/upload/20200328/file5e7f16371697106433c5f286.jpg"></p><p><br></p><p><br></p><p><br></p><p><br></p>	VCT_IEO2	USDT	VCT	1	30000.000000000000000000	139188.000000000000000000	0.000000000000000000	preheating	1			全球首个百倍通缩平台币VCT返场回馈	0	1	2020-04-18 20:00:00	2020-04-18 22:00:00	2020-03-28 12:54:23	2020-04-18 14:55:23	0	0	0	0.000000000000000000		0	0.000000000000000000
+ID5d8b3092ae7fee263c1c0ed68a4	VCT	http://vsex.pro/vsex/upload/20200328/file5e7f13cf1697104a9eaa7610.png	全球首个百倍通缩平台币VCT返场回馈	VCT	<p><br></p><p><br></p><p><img src="http://www.vsex.pro/vsexmanagerapi/upload/20200328/file5e7f16371697106433c5f286.jpg"></p><p><br></p><p><br></p><p><br></p><p><br></p>	VCT_IEO3	USDT	VCT	1	30000.000000000000000000	145928.000000000000000000	0.000000000000000000	preheating	1			全球首个百倍通缩平台币VCT返场回馈	0	1	2020-04-19 20:00:00	2020-04-19 22:00:00	2020-03-28 12:54:23	2020-04-19 14:55:23	0	0	0	0.000000000000000000		0	0.000000000000000000
+ID5d8b3092ae7fee263c1c0ed68a5	VCT	http://vsex.pro/vsex/upload/20200328/file5e7f13cf1697104a9eaa7610.png	全球首个百倍通缩平台币VCT返场回馈	VCT	<p><br></p><p><br></p><p><img src="http://www.vsex.pro/vsexmanagerapi/upload/20200328/file5e7f16371697106433c5f286.jpg"></p><p><br></p><p><br></p><p><br></p><p><br></p>	VCT_IEO4	USDT	VCT	1	30000.000000000000000000	35209.000000000000000000	0.000000000000000000	preheating	1			全球首个百倍通缩平台币VCT返场回馈	0	1	2020-04-20 20:00:00	2020-04-20 22:00:00	2020-03-28 12:54:23	2020-04-20 14:55:23	0	0	0	0.000000000000000000		0	0.000000000000000000
+ID5d8b3092ae7fee263c1c0eddbc	VCT	http://vsex.pro/vsex/upload/20200328/file5e7f13cf1697104a9eaa7610.png	全球首个百倍通缩平台币VCT震撼上线	VCT	<p><br></p><p><br></p><p><img src="http://www.vsex.pro/vsexmanagerapi/upload/20200328/file5e7f16371697106433c5f286.jpg"></p><p><br></p><p><br></p><p><br></p><p><br></p>	VCT_IEO	USDT	VCT	1	150000.000000000000000000	829946.000000000000000000	0.000000000000000000	preheating	1			全球首个百倍通缩平台币VCT震撼上线，VSEX永续合约74个国家每天2万用户共同助力，额度有限赶快来抢！	0	1	2020-03-30 20:00:00	2020-04-02 15:00:00	2020-03-28 12:54:23	2020-03-28 12:54:23	0	0	0	0.000000000000000000		0	0.000000000000000000
+
+SELECT * FROM trans_pending_order_log WHERE 'KDG' = market1 and 'USDT' = market2 AND 'U5d3926ce11be9a0ba7f88438' = pend_uid and pend_uid!= other_pend_uid LIMIT 0,100
+
+SELECT * from `user` WHERE parent_user_name = '13817209591' and create_time >'2020-03-30 00:00:00' and create_time <'2020-04-17 00:00:00' 
