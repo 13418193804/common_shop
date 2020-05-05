@@ -101,15 +101,15 @@ App({
       wx.setStorageSync('user', user)
       wx.setStorageSync('SellerAuthWxAttr', SellerAuthWxAttr)
       wx.setStorageSync('fans', fans)
-      
+
       if (fans) {
         this.globalData.fansId = fans.id
       }
-      if(SellerAuthWxAttr){
-        this.globalData.brandId =  SellerAuthWxAttr.brandId
-        this.globalData.companyId =  SellerAuthWxAttr.companyId
-        this.globalData.storeId =  SellerAuthWxAttr.storeId
-        
+      if (SellerAuthWxAttr) {
+        this.globalData.brandId = SellerAuthWxAttr.brandId
+        this.globalData.companyId = SellerAuthWxAttr.companyId
+        this.globalData.storeId = SellerAuthWxAttr.storeId
+
       }
       if (!user) {
         // wx.reLaunch({
@@ -123,13 +123,17 @@ App({
   onLaunch: function (options) {
     const token = wx.getStorageSync("token") ? wx.getStorageSync("token") : '';
     this.getUserInfo()
+
+
+
+
   },
 
   globalData: {
-    brandId:null,
-companyId:null,
-storeId:null,
-    fansId:null,
+    brandId: null,
+    companyId: null,
+    storeId: null,
+    fansId: null,
     code: null,
     token: null,
     userId: null,

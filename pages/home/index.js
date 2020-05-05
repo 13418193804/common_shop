@@ -4,8 +4,11 @@ import api from "../../utils/http_request.js"
 const app = getApp()
 Page({
       data: {
-        shopList:["中心市场","城东市场","城西市场"],
-        catList: ["限时秒杀", "天天特价", "应季果蔬", "邀请有奖", "下单减免 "],
+        screenHeight:0,
+        statusBarHeight:0,
+        windowHeight:0,
+        windowWidth:0,//屏幕宽度
+        capsuleWidth:0,//胶囊宽度
           invitationReward: 0.00,
           invitationNum: 0.00,
           userId: null,
@@ -430,6 +433,29 @@ Page({
 
         },
         onLoad: function () {
+          const _self = this
+          wx.getSystemInfo({
+            success (res) {
+              _self.setData({
+                capsuleWidth :wx.getMenuButtonBoundingClientRect().width,//胶囊宽度
+                windowWidth:    res.windowWidth,
+                statusBarHeight:res.statusBarHeight,
+                screenHeight:res.screenHeight,
+                windowHeight:res.windowHeight
+              })
+              console.log(res.statusBarHeight)
+              console.log(res.screenHeight)
+              console.log(res.windowHeight)
+              // console.log(res.pixelRatio)
+              // console.log(res.windowWidth)
+              // console.log(res.windowHeight)
+              // console.log(res.language)
+              // console.log(res.version)
+              // console.log(res.platform)
+            }
+          })
+            
+
           this.setData({
             userId: wx.getStorageSync("userId") ? wx.getStorageSync("userId") : null,
             openId: wx.getStorageSync("openId") ? wx.getStorageSync("openId") : null,
