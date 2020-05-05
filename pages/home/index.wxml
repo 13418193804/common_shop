@@ -14,7 +14,6 @@
 				<view class="nickName fontSize28">{{userInfo.nickName}}</view>
 				<view class="postion flex  flex-align-center fontSize24">
 					<i class="iconfont icondingwei fontSize24" style="margin-right:10rpx;color:#fff"></i>
-					<text>韶关新丰一号</text>
 					<i class="iconfont iconxia1" style="color:#fff"></i>
 				</view>
 			</view>

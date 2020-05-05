@@ -267,14 +267,6 @@ Page({
           }
           this.getOilCardList()
 
-          app.reverseGeocoder((e) => {
-            console.log('home--', e)
-            this.setData({
-              city: e.address_component.city,
-              regionName: e.address_component.province,
-            })
-            this.getNetWorkList()
-          })
         },
         getNetWorkList() {
           api.get("/network/list", {
