@@ -40,7 +40,8 @@ class API {
       return new Promise((resolve, reject) => {
 
         const token = wx.getStorageSync("token") ? wx.getStorageSync("token") : '';
-        const userid = wx.getStorageSync("userId") ? wx.getStorageSync("userId") : '';
+        const user = wx.getStorageSync("user") ? wx.getStorageSync("user") : '';
+        const  userid = user.userId
         const userMobile = wx.getStorageSync("loginName") ? wx.getStorageSync("loginName") : '';
         
         // const userid = '1';

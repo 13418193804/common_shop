@@ -1,7 +1,7 @@
+
 .confirm_container {
   height: 100vh;
   background-color: #F4F4F4;
-  padding: 20rpx 30rpx;
   overflow: auto;
 }
 
@@ -13,44 +13,82 @@
 
 .address_tab_title {
   padding: 20rpx;
-  border-bottom: #F4F4F4 1rpx solid;
+  border-bottom: #F4F4F4 1rpx solid;margin-top: 20rpx;
 }
 
 .add_address {
   text-align: center;
-  border: 1px #888888 dashed;
+  border: 1px #333 dashed;
   padding: 25rpx 0;
   width: 40%;
   margin: 40rpx 0;
-  color: #888888;
+  color: #333;
   transform: scaleY(1);
 
 }
-.order_width_shop{
+
+.order_width_shop {
   border-radius: 7rpx;
   background-color: #fff;
   margin-bottom: 30rpx;
 }
-.order_width_shop_title{
+
+.order_width_shop_title {
   padding: 20rpx;
   border-bottom: #F4F4F4 1rpx solid;
   position: relative;
+  margin: 0 20rpx;
 }
 
-.goods_info_list{
-padding: 20rpx;
+.goods_info_list {
+  padding: 20rpx;
+  position: relative;
+  border-bottom: #F4F4F4 1rpx solid;
 }
-.send_time{
+
+.confirm_price {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+}
+
+.send_time {
   padding: 20rpx;
 }
-.desc_price{
-  color:#888888
+
+.desc_price {
+  color: #888888
 }
-.desc_box{
-  border-bottom:1rpx solid #F4F4F4;
-    padding: 0 20rpx;
-    
+
+.desc_box {
+  border-bottom: 1rpx solid #F4F4F4;
+  padding: 0 20rpx;
+
 }
-.discount_rule{
+
+.discount_rule {
   padding: 20rpx;
+}
+
+.goods_confirm_bar1 {
+  background-color: #fff;
+  height: 90rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+  .address_tab_content{
+    padding: 20rpx;
+    line-height: 48rpx;
+
+  }
+.goods_confirm_benext1 {
+  background-color: #333333;
+  height: 100%;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 90rpx;
+  text-align: center;
+  width: 30vw;
 }

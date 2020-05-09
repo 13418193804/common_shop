@@ -1,6 +1,8 @@
 @import "style/iconfont.wxss";
 @import "style/xl.wxss";
+@import "/miniprogram_npm/@vant/weapp/common/index.wxss";
 /**app.wxss**/
+
 
 .container {
   height: 100%;

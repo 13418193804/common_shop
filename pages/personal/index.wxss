@@ -1,13 +1,15 @@
 .personal_container {
-  background-color: #F4F4F4;
+  background-color: #fff;
   height: 100vh;
+  overflow-y: auto;
 }
 
 .userinfo-avatar {
   width: 100rpx !important;
   height: 100rpx !important;
   border-radius: 50%;
-  padding: 0;margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .y_line {
@@ -21,19 +23,118 @@
   background-color: #FF7F00;
 
 }
-.user_order{
-background-color:#fff ;
-text-align: center;
-padding: 20rpx 0 30rpx;
+
+.user_order {
+  background-color: #fff;
+  text-align: center;
+  padding: 20rpx 0 30rpx;
 }
-.user_active{
-  background-color:#fff ;
+
+.user_active {
+  background-color: #fff;
   text-align: center;
   padding: 20rpx 0 30rpx;
 
 }
-.user_menu_title{
+
+.user_menu_title {
   color: #888888;
   padding: 20rpx 30rpx;
-  background-color:#fff ;
+  background-color: #fff;
+}
+
+.menber_bg {
+  /* background-image: url('../../images/user_bg.png'); */
+  background-size: 100% 100%;
+  position: relative;
+  height: 53vw;
+
+}
+
+
+.avatar {
+  background-color: #fff;
+  padding: 10rpx;
+  border-radius: 50%;
+  width: 13vw;
+  height: 13vw;
+  margin-right: 20rpx;
+}
+
+.user_mobile {
+  color: #fff;
+}
+
+.menber_content {
+  position: absolute;
+  left: 40rpx;
+  right: 40rpx;
+  bottom: -10vw;
+}
+
+.wallet {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 6rpx 6rpx rgba(0, 0, 0, 0.1);
+  border-radius: 10rpx;
+  height: 20vw;
+
+  text-align: center;
+}
+
+.wallet_line {
+  border-left: 1px solid #EAEAEA;
+  height: 100rpx;
+
+}
+
+.notice {
+  margin: 12vw 30rpx 0;
+  color: #999999;
+}
+
+.per_menu i {
+  font-size: 45rpx;
+}
+
+.per_menu {
+  text-align: center;
+  padding: 20rpx 0;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  line-height: 52rpx;
+
+}
+
+.menber_card {
+  border: 1rpx solid #fff;
+  border-radius: 40rpx;
+  padding: 5rpx 20rpx;
+  margin-top: 20rpx;
+  width: 4em;
+  text-align: center;
+  letter-spacing: 4rpx;
+  white-space: nowrap;
+}
+
+.level {
+  font-size: 16rpx;
+  vertical-align: sub;
+  margin-left: -4rpx;
+
+}
+
+.activty_title {
+  padding: 20rpx;
+  align-items: flex-end;
+  font-size: 38rpx;
+  margin-top: 20rpx;
+}
+
+.menber_tag {
+  background-color: #333333;
+  color: #fff;
+  margin-left: 10rpx;
+  margin-bottom: 5rpx;
+  height: 1rem;
+  padding: 2rpx 10rpx;
 }

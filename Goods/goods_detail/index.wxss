@@ -1,0 +1,81 @@
+.goods_detail_container {
+  height: 100vh;
+  overflow: auto;
+  background-color: #F6F6F6;
+}
+
+.goods_cont {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.goods_name {
+  margin-bottom: 20rpx;
+}
+
+.shareder {
+  float: right;
+  padding: 10rpx;
+  text-align: center;
+}
+
+.goods_detail {
+  word-break: break-all;
+  background-color: #fff;
+  padding: 20rpx 20rpx 110rpx 20rpx;
+}
+
+.goods_action {
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background-color: #fff;
+}
+
+.goods_action_left_btx {
+  width: 90rpx;
+  height: 90rpx;
+  text-align: center;
+  padding: 0 10rpx;
+}
+
+.goods_action_benext {
+  background-color: #333333;
+  height: 100%;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 90rpx;
+  text-align: center;
+
+}
+.action_next{
+  background-color: #333333;
+  font-size: 32rpx;
+  color: #fff;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.goods_number{
+  margin-top:30rpx;
+}
+.action_content{
+  /* height: 50vh; */
+  /* position: relative; */
+  padding: 20rpx;
+
+}
+.goods_detail_title {
+  border-bottom: 1rpx#EAEAEA solid;
+  padding: 20rpx;
+  background-color: #fff;
+}

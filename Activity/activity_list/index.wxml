@@ -1,0 +1,14 @@
+
+
+<view class="activity_list_container">
+  <view class="activity_item" wx:for="{{actList}}" bindtap="goActivity" data-promotionid="{{item.promotionId}}">
+      <view class="flex">
+        <image src="https://midapi.aisishop.com/image/upload/20200409/file5e8edce66881dc28c1d5310e.png" style="width:100%" mode="widthFix" ></image>
+      </view>
+      <view class="activity_item_content">
+        <view class="activity_item_name fontSize28">{{item.promotionName}}</view>
+        <view class="activity_item_time fontSize24">{{item.startTime}}~{{item.endTime}}</view>
+      </view>
+  </view>
+
+</view>

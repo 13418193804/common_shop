@@ -1,14 +1,48 @@
 <view class="page-body">
-	<view class="statusbox">
+	<view class="statusbox" style="height:{{customBar}}px;">
 
-		<view class="search" style="height:{{screenHeight -windowHeight-statusBarHeight }}px">
+		<view class="search" style="top:{{capsuleTop}}px;width:{{searchWidth}}px;heigt:{{capsuleHeight}}px;line-heigt:{{capsuleHeight}}px;">
 			<view class=" flex  flex-align-center ">
 				<i class="iconfont iconsousuo" style="color:#888888;margin-right:10rpx;"></i>
-				<input placeholder="输入商品名称" placeholder-class="fontSize24" class="fontSize28 flex-1" placeholder-class="fontSize28"></input>
+				<input placeholder="搜一下，更快找到所爱" placeholder-class="fontSize28" class="fontSize28 flex-1" placeholder-class="fontSize28"></input>
 			</view>
 		</view>
+	</view>
+
+
+
+	<view class="flex">
+		<image src="../../images/bed.png" mode="widthFix" class="flex-1"></image>
+	</view>
+
+	<view>
+
+		<van-tabs active="{{activeCat}}" bindchange="changeTabs" swipeable >
+			<van-tab wx:for="{{catList}}" title="{{item.categoryName}}" name="{{item.id}}" >
+				<view class="goods_content flex flex-warp-justify">
+					<view wx:for="{{goodsList}}" wx:for-index="idx" wx:for-item="goods" class="" bindtap="goGoodsDetail" data-goodsid="{{goods.goodsId}}">
+						<view class="goods_img flex" style="overflow: hidden;height:{{windowWidth/2}}px;width:{{windowWidth/2}}px">
+							<image src="{{goods.goodsTopUrl}}" mode="widthFix" style="width:100%;margin:10px"></image>
+						</view>
+						<view style="margin:10px">
+							<view class="fontSize28">
+								{{goods.goodsName}}
+							</view>
+							<view class="fontSize28" style="color:#F89210">
+								<i class="iconfont icon-weibiaoti2fuzhi01 fontSize28" style=""></i>{{goods.exchangePoints}}+￥{{goods.exchangeMoney}}
+							</view>
+						</view>
+					</view>
+				</view>
+
+
+			</van-tab>
+		</van-tabs>
 
 
 	</view>
+
+
+
 
 </view>

@@ -18,19 +18,19 @@
 
 .save_box {
   position: absolute;
-  bottom: 20vh;
+  bottom: 0;
   left: 0;
+  right: 0;
   width: 100vw;
 }
 
 .save_address {
   font-size: 28rpx;
-  background-color: #FF7F00;
+  background-color: #333333;
   color: #fff;
-  width: 65%;
-  height: 80rpx;
-  line-height: 80rpx;
+  width: 100vw;
+  height: 90rpx;
+  line-height: 90rpx;
   text-align: center;
-  border-radius: 40rpx;
   margin: 0 auto;
 }

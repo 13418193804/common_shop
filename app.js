@@ -65,17 +65,7 @@ App({
     })
   },
   invitationBind() {
-    let userid = wx.getStorageSync("userId") || '';
-    let reUserCode = wx.getStorageSync("reUserCode") || '';
-    if (userid != '' && reUserCode != '') {
-      setTimeout(() => {
-        api.post("/user/invitation/bind", {
-          "invitationCode": reUserCode
-        }).then(res => {
-          console.log('绑定关系', res)
-        })
-      }, 1000)
-    }
+  
 
   },
   authThird() {
@@ -87,7 +77,7 @@ App({
     const urlSortMarket = 'marketingapi'
     api.post("/scrm-user-service/user/wechat/authThird", {
       code: this.globalData.code,
-      appId: 'wx142d8ad7fe57a30c'
+      appId: this.globalData.appId
     }, {
       loading: true
     }).then(res => {
@@ -101,36 +91,51 @@ App({
       wx.setStorageSync('user', user)
       wx.setStorageSync('SellerAuthWxAttr', SellerAuthWxAttr)
       wx.setStorageSync('fans', fans)
-
       if (fans) {
         this.globalData.fansId = fans.id
+        this.globalData.channelType = fans.channelType
       }
       if (SellerAuthWxAttr) {
         this.globalData.brandId = SellerAuthWxAttr.brandId
         this.globalData.companyId = SellerAuthWxAttr.companyId
         this.globalData.storeId = SellerAuthWxAttr.storeId
-
       }
-      if (!user) {
-        // wx.reLaunch({
-        //   url: '/Auth/member_card/index',
-        // })
+        
+      if (user) {
+        this.globalData.userId = user.userId
+      } else {
+        wx.reLaunch({
+          url: '/Auth/member_card/index',
+        })
       }
     }).catch(e => {
       console.log(e)
     })
   },
+
   onLaunch: function (options) {
     const token = wx.getStorageSync("token") ? wx.getStorageSync("token") : '';
+    const SellerAuthWxAttr = wx.getStorageSync("SellerAuthWxAttr") ? wx.getStorageSync("SellerAuthWxAttr") : {};
+    const user = wx.getStorageSync("user") ? wx.getStorageSync("user") : {};
+    const fans = wx.getStorageSync("fans") ? wx.getStorageSync("fans") : {};
+
+    this.globalData.brandId = SellerAuthWxAttr.brandId
+    this.globalData.storeId = SellerAuthWxAttr.storeId
+    this.globalData.userId = user.userId
+
+    this.globalData.channelType = fans.channelType
+
     this.getUserInfo()
-
-
-
-
   },
 
   globalData: {
+    appId:'wx142d8ad7fe57a30c',
+    channelType:null,
+    confirmRemark: null,
+    confirmGoodId: null,
+    confirmNum: null,
     brandId: null,
+    storeId: null,
     companyId: null,
     storeId: null,
     fansId: null,

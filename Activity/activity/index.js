@@ -1,19 +1,26 @@
 import api from "../../utils/http_request.js"
 const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    url:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      let promotionId = options.promotionId
+      let appId = app.globalData.appId
+      let userId = app.globalData.userId
+      let storeId = app.globalData.storeId
+      this.setData({
+        url:`https://midapi.aisishop.com/aisih5/#/frame/act/signUp?appId=${appId}&promotionId=${promotionId}&userId=${userId}&storeId=${storeId}&userId=${userId}`
+      })
   },
 
   /**
@@ -27,25 +34,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getAddressList()
-  },
-  getAddressList() {
-
-
-
-    api.post("/scrm-user-service/user/address/get", {
-      userId: app.globalData.userId
-    }, {
-      header: {
-        'content-type': 'application/json'
-      }
-    }).then(res => {
-      if (res.httpStatus >= 550) {}
-      console.log(res)
-
-    })
 
   },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

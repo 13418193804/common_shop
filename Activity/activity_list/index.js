@@ -1,12 +1,13 @@
 import api from "../../utils/http_request.js"
 const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    actList: []
   },
 
   /**
@@ -27,24 +28,35 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getAddressList()
+    this.getActList()
   },
-  getAddressList() {
+  getActList() {
+    const _self = this
 
+    api.post("/scrm-promotion-service/front/promotionDomain/promotion/list", {
+      brandId: app.globalData.brandId,
+      page_no: 1,
+      page_size: 20,
+    }, {}).then(res => {
 
-
-    api.post("/scrm-user-service/user/address/get", {
-      userId: app.globalData.userId
-    }, {
-      header: {
-        'content-type': 'application/json'
-      }
-    }).then(res => {
       if (res.httpStatus >= 550) {}
       console.log(res)
-
+      _self.setData({
+        actList: res.data.list.map(e => {
+          return {
+            ...e,
+            endTime: e.endTime.substring(0, 16),
+            startTime: e.startTime.substring(0, 16),
+          }
+        })
+      })
     })
-
+  },
+  goActivity(e){
+   let  promotionId =e.currentTarget.dataset.promotionid
+      wx.navigateTo({
+        url: `/Activity/activity/index?promotionId=${promotionId}`,
+      })
   },
   /**
    * 生命周期函数--监听页面隐藏

@@ -1,6 +1,82 @@
 <view class="personal_container">
- <view  class="flex">
- </view>
+
+
+
+	<view class="menber_bg flex">
+		<image src="../../images/user_bg.png" mode="widthFix" style="width:100vw;position: absolute;top: 0;left: 0;right: 0;z-index:0"></image>
+		<view style="z-index:100">
+			<view style="font-size:32rpx;color:#fff;width:100vw;text-align:center; padding-top:{{capsuleTop}}px;height:{{capsuleHeight}}px;line-height:{{capsuleHeight}}px;">
+				会员中心
+			</view>
+
+			<view class="menber_content">
+				<view class="flex" style="margin-bottom: 40rpx;">
+					<view class="avatar">
+						<image src="{{user.avatar}}" mode="widthFix" style="width:100%;border-radius:50%;"></image>
+					</view>
+					<view class="flex-1 user_mobile">
+						<view class="fontSize28">{{user.mobile}}</view>
+						<view class="menber_card fontSize24"><text>V<text class="level">{{user.level}}</text></text>会员></view>
+					</view>
+				</view>
+
+				<view class="wallet flex flex-align-center fontSize32">
+					<view class="flex-1">
+						<view>{{totalUsageBalance}}</view>
+						<view>钱包</view>
+					</view>
+					<view class="wallet_line"></view>
+					<view class="flex-1">
+						<view>{{totalUsageBalance}}</view>
+						<view>积分</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<view class="notice">
+		<i class="iconfont icon-gonggao"></i><text style="margin-left:10rpx;" class="fontSize28">每天签到，最高可达5000积分</text>
+	</view>
+
+	<view class="flex per_menu_list">
+		<view wx:for="{{menuList}}" class="flex-1 per_menu" bindtap="goMenu" data-url="{{item.url}}">
+			<view><i class="iconfont {{item.icon}}"></i></view>
+			<view class="fontSize28">{{item.name}}</view>
+
+		</view>
+
+	</view>
+
+
+<view class="flex">
+  <image src="../../images/menber_banner.png" mode="widthFix" class="flex-1" style="margin: 0 20rpx"></image>
+</view>
+
+
+<view class="flex activty_title ">
+  <view class="">最新活动</view>
+	<van-tag color="#333333" style="margin-left: 10rpx;margin-bottom: 5rpx;">会员折扣</van-tag>
+</view>
+
+	<view class="goods_content flex flex-warp-justify">
+					<view wx:for="{{goodsList}}" wx:for-index="idx" wx:for-item="goods" class="" bindtap="goGoodsDetail" data-goodsid="{{goods.goodsId}}">
+						<view class="goods_img flex" style="overflow: hidden;height:{{windowWidth/2}}px;width:{{windowWidth/2}}px">
+							<image src="{{goods.goodsTopUrl}}" mode="widthFix" style="width:100%;margin:10px"></image>
+						</view>
+						<view style="margin:10px">
+							<view class="fontSize28">
+								{{goods.goodsName}}
+							</view>
+							<view class="fontSize28" style="color:#F89210">
+								<i class="iconfont icon-weibiaoti2fuzhi01 fontSize28" style=""></i>{{goods.exchangePoints}}+￥{{goods.exchangeMoney}}
+							</view>
+						</view>
+					</view>
+				</view>
+
+
 
 
 </view>

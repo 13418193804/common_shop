@@ -1,4 +1,11 @@
 <view class="address_list_container">
 
+<view class="address_item">
+
+</view>
+
+  <!-- <van-button color="#7232dd">单色按钮</van-button> -->
+
+  <view class="address_btx">新增地址</view>
 
 </view>

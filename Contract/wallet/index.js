@@ -1,5 +1,4 @@
-import api from "../../utils/http_request.js"
-const app = getApp()
+// Contract/wallet/index.js
 Page({
 
   /**
@@ -27,25 +26,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getAddressList()
-  },
-  getAddressList() {
-
-
-
-    api.post("/scrm-user-service/user/address/get", {
-      userId: app.globalData.userId
-    }, {
-      header: {
-        'content-type': 'application/json'
-      }
-    }).then(res => {
-      if (res.httpStatus >= 550) {}
-      console.log(res)
-
-    })
 
   },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

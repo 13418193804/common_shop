@@ -1,0 +1,92 @@
+<view class="goods_detail_container">
+	<swiper indicator-dots="{{true}}" style="height:{{windowWidth}}px">
+		<swiper-item>
+			<image src="{{goodsDetail.goodsTopUrl}}" mode="widthFix" style="height:{{windowWidth}}px;width:{{windowWidth}}px"></image>
+		</swiper-item>
+	</swiper>
+	<view class="goods_cont">
+		<view class="shareder ">
+			<i class="iconfont icon-fenxiang " style="font-size: 40rpx;"></i>
+			<view class="fontSize28">分享</view>
+		</view>
+		<view class="goods_name fontSize32">{{goodsDetail.goodsName}}</view>
+
+		<view class="goods_Price fontSize32">
+			<i class="iconfont icon-weibiaoti2fuzhi01" style="font-size:42rpx;color:#F89210;"></i><text style="color:#F89210;font-size:42rpx">{{goodsDetail.exchangePoints}} + ￥{{goodsDetail.exchangeMoney}}</text>
+			<text class="fontSize24" style="margin-left:20rpx;color:#999999">月销：38件</text>
+		</view>
+	</view>
+
+
+	<view class="goods_detail_title fontSize32">商品详情</view>
+
+	<view class="goods_detail">
+		<rich-text nodes="{{goodsDetail.goodsDetail}}" bindtap="tap"></rich-text>
+
+	</view>
+
+
+
+
+	<view class="goods_action flex">
+		<view class="goods_action_left_btx flex  flex-align-center  flex-pack-center" style="border-right: 1rpx solid #D1D1D1;">
+			<view>
+				<view><i class="iconfont icon-shangcheng " style="font-size:40rpx;color:#999999"></i></view>
+				<view class="fontSize24">商城</view>
+			</view>
+		</view>
+
+		<view class="goods_action_left_btx flex  flex-align-center  flex-pack-center">
+			<view>
+				<view><i class="iconfont icon-shoucang " style="font-size:40rpx;color:#999999"></i></view>
+				<view class="fontSize24">收藏</view>
+			</view>
+		</view>
+		<view class="goods_action_benext flex-1" bindtap="actionOpen">
+			立马兑换
+		</view>
+	</view>
+
+
+
+
+
+	<!-- <van-action-sheet show="{{ show }}" close-on-click-overlay="{{true}}" round="{{false}}">
+
+	</van-action-sheet> -->
+
+<van-popup
+  show="{{ show }}"
+  closeable
+  position="bottom"
+  custom-style="height: 50%"
+  bind:close="actionClose"
+>
+
+
+		<view class="action_content">
+
+			<view class="action_goods flex 25vw">
+				<view style="height:25vw;width:25vw;overflow: hidden;margin-right: 20rpx;">
+					<image src="{{goodsDetail.goodsTopUrl}}" mode="widthFix" style="width:100%"></image>
+				</view>
+				<view class="flex-1">
+					<view class="goods_name fontSize32">{{goodsDetail.goodsName}}</view>
+					<view class="fontSize28">
+						<i class="iconfont icon-weibiaoti2fuzhi01" style="color:#F89210;"></i><text style="color:#F89210;">{{goodsDetail.exchangePoints}} + ￥{{goodsDetail.exchangeMoney}}</text>
+					</view>
+				</view>
+				<!-- <view> <i bindtap="actionClose" class="iconfont icon-guanbi" style="padding: 20rpx;margin-right: -20rpx;"></i></view> -->
+			</view>
+
+
+			<view class="goods_number flex   flex-align-center flex-pack-justify ">
+				<view class="fontSize28">数量</view>
+				<van-stepper   value="{{num}}" bindchange="changeNum"/>
+			</view>
+			<view class="action_next" bindtap="goConfirm">下一步</view>
+		</view>
+
+</van-popup>
+
+</view>

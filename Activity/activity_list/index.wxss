@@ -1,0 +1,17 @@
+.activity_list_container{
+  background: #FAFAFA;
+  height: 100vh;
+  overflow-y: auto;
+}
+.activity_item{
+  margin: 20rpx 40rpx;
+}
+
+.activity_item_content{
+  background-color: #fff;
+  padding: 20rpx;
+color: #919090;}
+
+.activity_item_name{
+  margin-bottom: 10rpx;
+}

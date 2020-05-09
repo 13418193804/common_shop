@@ -13,6 +13,13 @@
       ]
     },
     {
+      "root": "Goods",
+      "name": "商品",
+      "pages": [
+        "goods_detail/index"
+      ]
+    },
+    {
       "root": "Auth",
       "name": "授权流程",
       "pages": [
@@ -26,7 +33,16 @@
       "name": "个人合约",
       "pages": [
         "address_list/index",
-        "address/index"
+        "address/index",
+        "wallet/index"
+      ]
+    },
+    {
+      "root": "Activity",
+      "name": "互动活动",
+      "pages": [
+        "activity_list/index",
+        "activity/index"
       ]
     }
   ],
@@ -44,13 +60,13 @@
         "iconPath": "./images/home.png",
         "selectedIconPath": "./images/home_select.png",
         "pagePath": "pages/home/index",
-        "text": "首页"
+        "text": "商城"
       },
       {
         "iconPath": "./images/me.png",
         "selectedIconPath": "./images/me_select.png",
         "pagePath": "pages/personal/index",
-        "text": "我的"
+        "text": "个人中心"
       }
     ]
   },
