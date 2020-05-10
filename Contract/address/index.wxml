@@ -32,7 +32,7 @@
 	<view class="address_container_content fontSize28 flex   flex-pack-justify flex-align-center">
 		<view class="">设为默认地址</view>
 		<view>
-			<switch value="{{defaultAddress}}" bindchange="defaultAddressChange"></switch>
+			<switch checked="{{defaultAddress}}" bindchange="defaultAddressChange"></switch>
 		</view>
 	</view>
 

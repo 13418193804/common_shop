@@ -131,6 +131,7 @@ App({
   globalData: {
     appId:'wx142d8ad7fe57a30c',
     channelType:null,
+    confirmAddressId: null,
     confirmRemark: null,
     confirmGoodId: null,
     confirmNum: null,

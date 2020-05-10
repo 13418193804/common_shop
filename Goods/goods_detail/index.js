@@ -22,6 +22,7 @@ Page({
     app.globalData.confirmGoodId = this.data.goodsId
     app.globalData.confirmNum = this.data.num,
     app.globalData.confirmRemark = '',
+    app.globalData.confirmAddressId = null,
     wx.navigateTo({
       url: `/Trade/confirm/index`,
     })

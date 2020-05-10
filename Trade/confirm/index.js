@@ -19,14 +19,14 @@ Page({
 
   goAddAddress() {
     wx.navigateTo({
-      url: '/Contract/address/index',
+      url: '/Contract/address_list/index?confirm=true',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
+    this.setData({ 
       goodsId: app.globalData.confirmGoodId,
       confirmNum: app.globalData.confirmNum,
       confirmRemark: app.globalData.confirmRemark
@@ -46,20 +46,26 @@ Page({
   onShow: function () {
 
     this.getGoodsDetail()
-
+    
     this.getAddress()
+
   },
   goAddressList(){
     wx.navigateTo({
-      url: '/Contract/address_list/index',
+      url: '/Contract/address_list/index?confirm=true',
     })
   },
   getAddress() {
-
-    api.post("/scrm-user-service/user/address/getUserAddressNotPage", {
-      defaultAddress: true,
-      tableuserId: app.globalData.userId
-    }, {
+let params = {
+  tableuserId: app.globalData.userId
+  
+}
+      if(!app.globalData.confirmAddressId){
+        params.defaultAddress = true
+      }else{
+        params.id = app.globalData.confirmAddressId
+      }
+    api.post("/scrm-user-service/user/address/getUserAddressNotPage", params, {
 
     }).then(res => {
       if (res.httpStatus >= 550) {}
@@ -89,7 +95,7 @@ Page({
 
 
     api.post("/scrm-points-service/front/pointsDomain/exchange/points/transaction", {
-      addressId: this.data.address,
+      addressId: this.data.address.id,
       channelName: app.globalData.channelType,
       channelType: app.globalData.channelType,
       brandId: app.globalData.brandId,
@@ -98,7 +104,16 @@ Page({
       remark: this.data.confirmRemark,
       storeId: app.globalData.storeId,
     }, {}).then(res => {
-      if (res.httpStatus >= 550) {}
+      if (res.code != 0) {
+        wx.showModal({
+          title:'提示',
+          content:res.msg,
+        })
+        return
+      }
+      wx.showToast({
+        title: '成功',
+      })
       console.log(res)
     })
 

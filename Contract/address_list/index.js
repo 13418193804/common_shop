@@ -6,14 +6,62 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    confirm: null,
+    addressList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      confirm: options.confirm
+    })
+  },
 
+  selectAddress(e) {
+    if (!this.data.confirm) {
+
+      return
+    }
+    let id = e.currentTarget.dataset.id
+    app.globalData.confirmAddressId = id
+    wx.navigateBack({
+      complete: (res) => {},
+    })
+
+
+  },
+  doDelete(e) {
+    let id = e.currentTarget.dataset.id
+
+    const _self = this
+    wx.showModal({
+      title: '提示',
+      content: '确认删除该收获地址？',
+      success: (e) => {
+        if (e.confirm) {
+
+          api.get("/scrm-user-service/user/address/del", {
+            id: id,
+          }, {
+            header: {
+              'content-type': 'application/json'
+            }
+          }).then(res => {
+            if (res.httpStatus >= 550) {}
+            wx.showToast({
+              title: '成功',
+            })
+            _self.getAddressList()
+
+          })
+
+
+        }
+      }
+
+    })
   },
 
   /**
@@ -22,7 +70,36 @@ Page({
   onReady: function () {
 
   },
+  doEdit(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/Contract/address/index?id=${id}`,
+    })
+  },
+  onChange(e) {
+    let id = e.currentTarget.dataset.id
+    api.get("/scrm-user-service/user/address/default", {
+      id: id,
+      userId: app.globalData.userId
+    }, {
+      header: {
+        'content-type': 'application/json'
+      }
+    }).then(res => {
+      if (res.httpStatus >= 550) {}
+      wx.showToast({
+        title: '成功',
+      })
+      this.getAddressList()
 
+    })
+
+  },
+  doAdd() {
+    wx.navigateTo({
+      url: '/Contract/address/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -33,7 +110,7 @@ Page({
 
 
 
-    api.post("/scrm-user-service/user/address/get", {
+    api.get("/scrm-user-service/user/address/get", {
       userId: app.globalData.userId
     }, {
       header: {
@@ -42,6 +119,9 @@ Page({
     }).then(res => {
       if (res.httpStatus >= 550) {}
       console.log(res)
+      this.setData({
+        addressList: res.data
+      })
 
     })
 

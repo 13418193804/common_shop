@@ -7,76 +7,82 @@ Page({
    */
   data: {
     region: ['广东省', '广州市', '海珠区'],
-    defaultAddress:0,
-    receiver:'',
-    receiverAddress:'',
-    receiverMobile:'',
-
+    defaultAddress: 0,
+    receiver: '',
+    receiverAddress: '',
+    receiverMobile: '',
+    id: null,
   },
 
-  receiverChange(e){
+  receiverChange(e) {
     this.setData({
       receiver: e.detail.value
     })
   },
-  
-  receiverAddressChange(e){
+
+  receiverAddressChange(e) {
     this.setData({
       receiverAddress: e.detail.value
     })
   },
 
-  
 
-  receiverMobileChange(e){
+
+  receiverMobileChange(e) {
     this.setData({
       receiverMobile: e.detail.value
     })
-  },  defaultAddressChange(e){
+  },
+  defaultAddressChange(e) {
     this.setData({
       defaultAddress: e.detail.value
     })
   },
-  
+
   bindRegionChange: function (e) {
     this.setData({
       region: e.detail.value
     })
   },
-  saveAddress(){
-    
-    if(
-      (this.data.receiver||'') == ''
-    ){
+  saveAddress() {
+
+    if (
+      (this.data.receiver || '') == ''
+    ) {
       wx.showModal({
-        title:'提示',
-        content:'请输入联系人',
-        showCancel:false
+        title: '提示',
+        content: '请输入联系人',
+        showCancel: false
       })
-      return 
+      return
     }
-    if(
-      (this.data.receiverMobile||'') == ''
-    ){
+    if (
+      (this.data.receiverMobile || '') == ''
+    ) {
       wx.showModal({
-        title:'提示',
-        content:'请输入联系号码',
-        showCancel:false
+        title: '提示',
+        content: '请输入联系号码',
+        showCancel: false
       })
-      return 
+      return
     }
-    if(
-      (this.data.receiverAddress||'') == ''
-    ){
+    if (
+      (this.data.receiverAddress || '') == ''
+    ) {
       wx.showModal({
-        title:'提示',
-        content:'请输入地址',
-        showCancel:false
+        title: '提示',
+        content: '请输入地址',
+        showCancel: false
       })
-      return 
+      return
     }
-    
-    api.post("/scrm-user-service/user/address/add", {
+
+    let url = "/scrm-user-service/user/address/add"
+    if (this.data.id) {
+      url = `/scrm-user-service/user/address/update`
+    }
+    api.post(url, {
+      id: this.data.id,
       brandId: app.globalData.brandId,
       defaultAddress: this.data.defaultAddress,
       postalCode: "",
@@ -86,16 +92,18 @@ Page({
       region: this.data.region.join(' '),
       userId: app.globalData.userId
     }, {
-      header:{'content-type': 'application/json'}
+      header: {
+        'content-type': 'application/json'
+      }
     }).then(res => {
       if (res.httpStatus >= 550) {}
       wx.showToast({
         title: '成功',
       })
-   
-      wx.redirectTo({
-        url: `/Trade/confirm/index?addressId=`,
+      wx.navigateBack({
+        complete: (res) => {},
       })
+     
     })
 
   },
@@ -103,7 +111,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      id: options.id
+    })
+
   },
 
   /**
@@ -117,9 +128,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (this.data.id) {
+      this.getAddressInfo()
+    }
+  },
+  getAddressInfo() {
+    api.post("/scrm-user-service/user/address/getUserAddressNotPage", {
+      id: this.data.id,
+      tableuserId: app.globalData.userId
+    }, {}).then(res => {
+      if (res.httpStatus >= 550) {}
+      let data = res.list[0]
+      this.setData({
+        defaultAddress: data.defaultAddress,
+        receiver: data.receiver,
+        receiverAddress: data.receiverAddress,
+        receiverMobile: data.receiverMobile,
+        region: data.region.split(' ')
+      })
+    })
 
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
