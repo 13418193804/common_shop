@@ -34,7 +34,9 @@
       "pages": [
         "address_list/index",
         "address/index",
-        "wallet/index"
+        "wallet/index",
+        "order_list/index",
+        "order_detail/index"
       ]
     },
     {

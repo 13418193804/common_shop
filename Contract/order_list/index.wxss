@@ -1,0 +1,15 @@
+.order_list_container{
+  background-color: #f4f4f4 !important;
+height: 100vh;
+overflow: auto;
+}
+.custom-class	{
+  
+}
+.goods_font{
+  
+  padding: 20rpx;
+}
+.confirm_price{
+  padding: 20rpx;
+}

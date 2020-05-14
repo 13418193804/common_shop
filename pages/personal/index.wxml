@@ -21,13 +21,13 @@
 				</view>
 
 				<view class="wallet flex flex-align-center fontSize32">
-					<view class="flex-1">
+					<view class="flex-1" bindtap="goWallet">
 						<view>{{totalUsageBalance}}</view>
 						<view>钱包</view>
 					</view>
 					<view class="wallet_line"></view>
-					<view class="flex-1">
-						<view>{{totalUsageBalance}}</view>
+					<view class="flex-1" bindtap="requestSubscribeMessage">
+						<view>{{user.points}}</view>
 						<view>积分</view>
 					</view>
 				</view>

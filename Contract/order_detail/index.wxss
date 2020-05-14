@@ -1,0 +1,36 @@
+.order_detail_container{
+  background-color: #f4f4f4 !important;
+height: 100vh;
+}
+.address_recoed{
+  padding: 20rpx;
+  background-color: #fff;
+  margin-bottom:20rpx;
+  line-height: 55rpx;
+}
+
+
+.order_width_shop {
+  border-radius: 7rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.order_width_shop_title {
+  padding: 20rpx;
+  border-bottom: #F4F4F4 1rpx solid;
+  position: relative;
+  margin: 0 20rpx;
+}
+
+.goods_info_list {
+  padding: 20rpx;
+  position: relative;
+  border-bottom: #F4F4F4 1rpx solid;
+}
+
+.confirm_price {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+}

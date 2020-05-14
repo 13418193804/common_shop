@@ -1,0 +1,93 @@
+<view class="order_detail_container">
+	<view class="address_recoed">
+		<view>{{detail.receiver}} {{detail.receiverMobile}}</view>
+		<view style="color:#999999">{{detail.receiveAddress}}</view>
+	</view>
+
+
+	<view class="order_width_shop">
+		<view class="order_width_shop_title">
+			平台自营
+		</view>
+		<view class="goods_info_list flex ">
+
+			<view class="flex" style="width:18vw;height:18vw;overflow:hidden;margin-right:20rpx;">
+				<image src="{{detail.goodsUrl}}" mode="widthFix" style="width:100%;margin:10rpx;"></image>
+			</view>
+			<view class="flex-1 " style="margin-top:20rpx">
+				<view class="fontSize28">{{detail.goodsName}}</view>
+				<view class="fontSize24">x {{detail.exchangeNum}}</view>
+			</view>
+			<view style="margin-top:20rpx">
+				<view class="fontSize28">{{detail.exchangePoints}}积分</view>
+				<view class="fontSize28">￥{{detail.exchangeMoney}}</view>
+			</view>
+		</view>
+
+
+
+
+
+
+	</view>
+
+  <view style="margin-top:20rpx;background-color:#fff">
+  
+		<view class="order_width_shop_title fontSize24 flex flex-pack-justify">
+			<view>订单状态</view>
+			<view class="fontSize24">
+				{{orderStatusEnum[detail.orderStatus]}}
+			</view>
+		</view>
+
+		<view class="order_width_shop_title fontSize24 flex flex-pack-justify">
+			<view>下单编号</view>
+			<view class="fontSize24">
+				{{detail.id}}
+			</view>
+		</view>
+
+    		<view class="order_width_shop_title fontSize24 flex flex-pack-justify">
+			<view>下单时间</view>
+			<view class="fontSize24">
+				  {{detail.createTime}}
+			</view>
+		</view>
+
+    		<view class="order_width_shop_title fontSize24 flex flex-pack-justify">
+			<view>支付时间</view>
+			<view class="fontSize24">
+				  {{detail.payTime}}
+			</view>
+		</view>
+
+    	<view class="order_width_shop_title fontSize24 flex flex-pack-justify">
+			<view>买家留言</view>
+			<view class="fontSize24">
+				  {{detail.remark}}
+			</view>
+		</view>
+  
+  </view>
+
+  <view style="margin-top:20rpx;background-color:#fff">
+  
+		<view class="order_width_shop_title fontSize24 flex flex-pack-justify">
+			<view>商品合计</view>
+			<view class="fontSize24">
+			 ￥{{detail.exchangeMoney}} + {{detail.exchangePoints}}积分
+			</view>
+		</view>
+
+    		<view class="order_width_shop_title fontSize24 flex flex-pack-justify">
+			<view>运费</view>
+			<view class="fontSize24">
+				  {{detail.createTime}}
+			</view>
+		</view>
+		</view>
+		<view style="padding: 20rpx;text-align: right;"> 
+			<van-button size="small" type="danger" bindtap="doReavc" wx:if="{{detail.orderStatus == 'SEND'}}" data-="{{detail.id}}">确认收货</van-button>
+		</view>
+
+</view>

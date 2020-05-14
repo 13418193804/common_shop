@@ -1,0 +1,30 @@
+<view class="order_list_container">
+
+
+	<view style="margin-bottom: 20rpx;background-color: #fff ;" wx:for="{{orderList}}" bindtap="goDetail" data-id="{{item.id}}">
+
+		<view class="flex flex-pack-justify fontSize28" style="padding:20rpx;border-bottom:1rpx solid #eee">
+			<view>{{item.createTime}}</view>
+			<view>{{orderStatusEnum[item.orderStatus]}}</view>
+		</view>
+		<view class="flex goods_font" style="">
+
+			<view class="flex" style="width:18vw;height:18vw;overflow:hidden;margin-right:20rpx;">
+				<image src="{{item.goodsUrl}}" mode="widthFix" style="width:100%;margin:10rpx;"></image>
+			</view>
+
+			<view class="flex-1 " style="margin-top:20rpx">
+				<view class="fontSize28">{{item.goodsName}}</view>
+				<view class="fontSize24" style="margin-top:10rpx">{{item.exchangePoints}} 积分 + ￥{{item.exchangeMoney}}</view>
+			</view>
+			<view class="confirm_price">
+				<view class="fontSize28">x {{item.exchangeNum}}</view>
+			</view>
+		</view>
+		<view style="padding: 20rpx;text-align: right;{{item.orderStatus == 'SEND' ?'border-top:1rpx solid #eee':''}}">
+			<van-button size="small" type="danger" catchtap="doReavc" wx:if="{{item.orderStatus == 'SEND'}}"  data-id="{{item.id}}">确认收货</van-button>
+		</view>
+	</view>
+
+
+</view>

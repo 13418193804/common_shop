@@ -92,3 +92,20 @@
   text-align: center;
   width: 30vw;
 }
+.paypassword_content{
+  height: 100vh;
+  background-color: #fff;
+  width: 100vw;
+}
+.password_box{
+  border:1px #EAEAEA solid;
+  width: 72vw;
+  height: 12vw;
+  line-height: 12vw;
+  margin:  40rpx auto 0;
+  text-align: center;
+}
+ 
+.input_control { 
+  position: relative; left: -700rpx; bottom: 0; width: 100rpx; height: 100rpx;
+}

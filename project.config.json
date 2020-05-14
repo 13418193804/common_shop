@@ -122,6 +122,27 @@
 					"id": -1,
 					"name": "Contract/address_list/index",
 					"pathName": "Contract/address_list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Contract/order_list/index",
+					"pathName": "Contract/order_list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Contract/order_detail/index",
+					"pathName": "Contract/order_detail/index",
+					"query": "id=PGRDID5eb4b94aa6b729323c7f6d92",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Contract/wallet/index",
+					"pathName": "Contract/wallet/index",
 					"scene": null
 				}
 			]

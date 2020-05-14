@@ -6,10 +6,44 @@ Page({
    * 页面的初始数据
    */
   data: {
+    paypasswordModel: false,
     address: null,
     confirmRemark: '',
     goodsId: null,
-    confirmNum: null
+    confirmNum: null,
+    payPassword: "",
+    payFocus: false,
+  },
+  doClose() {
+    this.setData({
+      payPassword: '',
+      paypasswordModel: false
+    });
+  },
+  doOpenPassword() {
+    this.setData({
+      paypasswordModel: true,
+      payFocus: true
+    });
+  },
+  getFocus: function () {
+    this.setData({
+      payFocus: true
+    });
+  },
+  hidePayLayer() {
+    this.setData({
+      payFocus: false
+    });
+  },
+  doNext(e) {
+
+    this.setData({
+      payPassword: e.detail.value
+    })
+    if (this.data.payPassword && this.data.payPassword.length == 6) {
+      this.payOrder()
+    }
   },
   confirmRemarkChange(e) {
     this.setData({
@@ -26,7 +60,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ 
+    this.setData({
       goodsId: app.globalData.confirmGoodId,
       confirmNum: app.globalData.confirmNum,
       confirmRemark: app.globalData.confirmRemark
@@ -46,25 +80,25 @@ Page({
   onShow: function () {
 
     this.getGoodsDetail()
-    
+
     this.getAddress()
 
   },
-  goAddressList(){
+  goAddressList() {
     wx.navigateTo({
       url: '/Contract/address_list/index?confirm=true',
     })
   },
   getAddress() {
-let params = {
-  tableuserId: app.globalData.userId
-  
-}
-      if(!app.globalData.confirmAddressId){
-        params.defaultAddress = true
-      }else{
-        params.id = app.globalData.confirmAddressId
-      }
+    let params = {
+      tableuserId: app.globalData.userId
+
+    }
+    if (!app.globalData.confirmAddressId) {
+      params.defaultAddress = true
+    } else {
+      params.id = app.globalData.confirmAddressId
+    }
     api.post("/scrm-user-service/user/address/getUserAddressNotPage", params, {
 
     }).then(res => {
@@ -103,18 +137,25 @@ let params = {
       goodsNum: this.data.confirmNum,
       remark: this.data.confirmRemark,
       storeId: app.globalData.storeId,
-    }, {}).then(res => {
+    }, {
+      loading: true
+    }).then(res => {
+      this.doClose()
+
       if (res.code != 0) {
         wx.showModal({
-          title:'提示',
-          content:res.msg,
+          title: '提示',
+          content: res.msg,
         })
         return
       }
       wx.showToast({
         title: '成功',
       })
-      console.log(res)
+      wx.redirectTo({
+        url: `/Contract/order_detail/index?id=${res.data.orderId}`,
+      })
+     
     })
 
   },

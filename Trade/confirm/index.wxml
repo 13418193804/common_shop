@@ -11,7 +11,7 @@
 				<view class="fontSize28">
 					{{address.receiver}} {{address.receiverMobile}}
 				</view>
-				<view class="fontSize28 van-multi-ellipsis--l2">
+				<view class="fontSize28 van-multi-ellipsis--l2"  style="color:#999999">
 					{{address.region}} {{address.receiverAddress}}
 				</view>
 			</view>
@@ -67,12 +67,12 @@
 		</view>
 
 
-		<view class="order_width_shop_title fontSize28 flex flex-pack-justify">
+		<!-- <view class="order_width_shop_title fontSize28 flex flex-pack-justify">
 			<view>支付密码</view>
 			<view class="flex-1 fontSize28" style="max-width: 70%;">
 				<input placeholder="请输入支付密码" type="password"></input>
 			</view>
-		</view>
+		</view> -->
 
 
 
@@ -85,7 +85,7 @@
 		<view class="flex-1 ">
 
 		</view>
-		<view class="goods_confirm_benext1" bindtap="payOrder">
+		<view class="goods_confirm_benext1" bindtap="doOpenPassword">
 			马上付款
 		</view>
 	</view>
@@ -93,3 +93,23 @@
 
 
 </view>
+
+<van-popup show="{{ paypasswordModel }}">
+	<view class="paypassword_content" bindtap="hidePayLayer">
+		<view style="padding:60rpx 40rpx" class=" flex   flex-pack-justify">
+			<view class="fontSize32">支付密码</view>
+			<view class="fontSize28" style="color:#999999" catchtap="doClose">取消</view>
+		</view>
+
+
+		<view class="flex flex-align-center password_box" catchtap="getFocus">
+			<view class="flex flex-align-center flex-pack-center flex-1" wx:for="{{6}}"  style="height:100%;{{index!=0?'border-left:1px #EAEAEA solid;':''}}">
+                <text style="width: 30rpx; height: 30rpx; border-radius: 30rpx; background-color: #555;" wx:if='{{payPassword.length>index}}'></text>
+			</view>
+		</view>
+		 <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='doNext' maxlength='6'/>
+
+
+
+	</view>
+</van-popup>
