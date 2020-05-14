@@ -43,11 +43,11 @@ Page({
         if (e.confirm) {
 
           api.get("/scrm-user-service/user/address/del", {
-            id: id,
+            id: id,//参数
           }, {
             header: {
               'content-type': 'application/json'
-            }
+            },//默认是字符类型  修改头为JSON类型 （选传）
           }).then(res => {
             if (res.httpStatus >= 550) {}
             wx.showToast({
